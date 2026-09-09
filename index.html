@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Super Pack de Receitas Fit — receitas para comer sem culpa</title>
+<meta name="description" content="Mais de 250 receitas sem açúcar e sem farinha, elaboradas por chef com mais de 10 anos de experiência. Acesso imediato por e-mail. Garantia de 14 dias.">
+<meta property="og:title" content="Super Pack de Receitas Fit — comer sem culpa">
+<meta property="og:description" content="Mais de 250 receitas sem açúcar e sem farinha. Acesso imediato no seu e-mail.">
+<meta property="og:image" content="img/header-comidas.jpg">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=Inter:wght@400;500;600;700;800&display=swap">
+
+<style>
+:root{
+  --ground:#FBF9F5;
+  --surface:#FFFFFF;
+  --ink:#1A1F1B;
+  --ink-soft:#5C6560;
+  --green:#137A48;
+  --green-deep:#0C5433;
+  --green-tint:#EAF3ED;
+  --amber:#E8A33D;
+  --amber-tint:#FDF3E2;
+  --line:#E4E0D8;
+  --radius:18px;
+  --shadow:0 6px 26px -10px rgba(26,31,27,.18);
+  --display:"Fraunces",Georgia,serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+body{
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:var(--sans);font-size:17px;line-height:1.6;
+  text-align:center;                 /* tudo centralizado, como pedido */
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;margin-inline:auto}
+.wrap{width:100%;max-width:620px;margin:0 auto;padding:0 20px}
+section{padding:52px 0}
+h1,h2,h3{font-family:var(--display);font-weight:900;line-height:1.12;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1{font-size:clamp(34px,8.4vw,50px)}
+h2{font-size:clamp(25px,5.4vw,33px)}
+h3{font-size:20px;font-weight:900}
+p{margin:0}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+.lede{color:var(--ink-soft);margin-top:14px}
+.mt-16{margin-top:16px}.mt-24{margin-top:24px}.mt-32{margin-top:32px}
+.stack{display:flex;flex-direction:column;align-items:center}
+.gap-12{gap:12px}.gap-16{gap:16px}.gap-20{gap:20px}
+
+/* ---------- HERO ----------
+   O banner e uma faixa: a imagem inteira empurraria a headline e o botao
+   pra baixo da dobra. object-position pega a parte central, onde estao as
+   tortinhas — e o pedaco mais apetitoso da foto. */
+/* Altura em vh, nao em proporcao: assim a faixa nunca passa de 18% da tela,
+   seja no celular ou num monitor largo (onde a proporcao a esticaria). */
+.hero-img img{
+  width:100%;height:18vh;min-height:84px;max-height:170px;
+  object-fit:cover;object-position:center 46%;
+}
+
+.hero{
+  background:linear-gradient(175deg,var(--green-deep),var(--green) 75%);
+  color:#fff;padding:36px 0 66px;   /* fundo maior: o card de selos sobe por cima */
+}
+.hero .eyebrow{color:var(--amber)}
+.hero h1{color:#fff;margin-top:12px}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.hero .lede{color:rgba(255,255,255,.92);font-size:17.5px;max-width:44ch;margin-inline:auto}
+.hero .lede b{color:#fff}
+/* Texto simples, nao mais uma pilula: arredondada e com borda, ela lia como
+   um segundo botao e roubava atencao do CTA. */
+.chef{display:block;margin-top:16px;font-size:14.5px;font-weight:600;color:var(--amber)}
+
+/* ---------- BOTÃO ---------- */
+.cta{
+  display:block;width:100%;max-width:460px;margin:0 auto;background:var(--amber);color:#3A2708;
+  font-size:20px;font-weight:800;letter-spacing:-.01em;text-align:center;text-decoration:none;
+  padding:22px 18px;border-radius:14px;position:relative;overflow:hidden;
+  animation:cta-pulso 1.6s ease-in-out infinite;
+}
+.cta:hover{transform:translateY(-2px)}
+.cta:focus-visible{outline:3px solid var(--green-deep);outline-offset:3px}
+
+/* Respiro continuo: o anel entra no keyframe porque box-shadow em classe
+   seria sobrescrito pela animacao. */
+@keyframes cta-pulso{
+  0%,100%{ transform:scale(1);
+    box-shadow:0 0 0 4px rgba(232,163,61,.28), 0 12px 30px -10px rgba(232,163,61,.8); }
+  50%    { transform:scale(1.025);
+    box-shadow:0 0 0 9px rgba(232,163,61,.14), 0 16px 38px -10px rgba(232,163,61,.9); }
+}
+/* Brilho que atravessa o botao de tempos em tempos */
+.cta::after{
+  content:"";position:absolute;top:0;left:-60%;width:45%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:skewX(-18deg);animation:cta-brilho 3.2s ease-in-out infinite;
+}
+@keyframes cta-brilho{ 0%,55%{left:-60%} 85%,100%{left:120%} }
+
+@media (prefers-reduced-motion:reduce){
+  .cta{animation:none;box-shadow:0 0 0 4px rgba(232,163,61,.28), 0 12px 30px -10px rgba(232,163,61,.8)}
+  .cta::after{display:none}
+}
+.cta-sub{font-size:13.5px;color:var(--ink-soft);margin-top:12px}
+.hero .cta-sub{color:rgba(255,255,255,.85)}
+
+/* ---------- SELOS ----------
+   Card que sobe por cima da borda do hero: costura o verde com o creme
+   em vez de deixar um corte seco entre as duas secoes. */
+.selos-wrap{margin-top:-44px;position:relative;z-index:2}
+.selos{
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden;
+}
+.selo{padding:18px 8px}
+.selo+.selo{border-left:1px solid var(--line)}
+.selo svg{width:26px;height:26px;stroke:var(--green);fill:none;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round;margin:0 auto 8px}
+.selo b{display:block;font-size:13.5px;line-height:1.2}
+.selo span{display:block;font-size:11.5px;color:var(--ink-soft);margin-top:2px}
+
+/* ---------- CARD / LISTAS ---------- */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;box-shadow:var(--shadow)}
+.lista{list-style:none;margin:0;padding:0;display:inline-flex;flex-direction:column;gap:13px;text-align:left}
+.lista li{display:flex;gap:11px;align-items:flex-start;font-size:16px}
+.tick{flex:0 0 22px;height:22px;border-radius:50%;background:var(--green-tint);color:var(--green);display:grid;place-items:center;font-size:12px;font-weight:800;margin-top:2px}
+
+/* ---------- RECEITAS ---------- */
+.receita{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);width:100%}
+.receita img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.receita .corpo{padding:20px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+.tag{font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;background:var(--green-tint);color:var(--green-deep)}
+.tag.warm{background:var(--amber-tint);color:#8A5A0B}
+
+/* ---------- PRA QUEM É ---------- */
+.perfil{
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  box-shadow:var(--shadow);padding:16px 18px;width:100%;
+  display:flex;gap:14px;align-items:center;text-align:left;
+}
+.perfil span{flex:0 0 auto;font-size:26px;line-height:1}
+.perfil p{font-size:15.5px;line-height:1.4}
+
+/* ---------- GALERIA ----------
+   As fotos sao todas retrato (0,56 a 0,75). Em quadrado o prato ficava
+   decepado; 3/4 em duas colunas respeita o enquadramento e mostra a comida
+   grande, que e o que vende. */
+.galeria{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.galeria img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center;border-radius:14px}
+
+/* ---------- BÔNUS ---------- */
+.bonus{
+  border:3px dashed var(--amber);border-radius:var(--radius);padding:30px 16px 26px;
+  background:linear-gradient(180deg,#FFF6E6,var(--amber-tint));
+  box-shadow:0 0 0 6px rgba(232,163,61,.12), var(--shadow);
+  position:relative;margin-top:16px;
+}
+.bonus-selo{
+  position:absolute;top:-15px;left:50%;transform:translateX(-50%);
+  background:var(--amber);color:#3A2708;font-size:12px;font-weight:800;
+  letter-spacing:.14em;text-transform:uppercase;padding:8px 18px;border-radius:999px;
+  box-shadow:0 6px 16px -6px rgba(232,163,61,.9);white-space:nowrap;
+}
+.bonus h2{color:#7A4E08}
+.bonus-valor{
+  margin-top:22px;background:var(--surface);border-radius:14px;padding:16px;
+  font-size:15.5px;
+}
+.bonus-valor b{display:block;font-family:var(--display);font-size:26px;font-weight:900;color:var(--green);margin-top:4px}
+/* Cards prontos do Canva: altura natural, sem recorte — o titulo esta dentro
+   da propria imagem e qualquer crop comeria o texto. */
+.bonus-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start;margin-top:22px}
+.bonus-grid img{width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow)}
+
+/* ---------- VALOR ---------- */
+.valor{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;text-align:left}
+.valor-linha{display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding:13px 18px;border-bottom:1px solid var(--line);font-size:15px}
+.valor-linha s{color:var(--ink-soft);font-variant-numeric:tabular-nums;flex:0 0 auto}
+.valor-total{display:flex;justify-content:space-between;padding:16px 18px;background:var(--green-tint);font-weight:800}
+.valor-total s{font-variant-numeric:tabular-nums;font-size:19px}
+.preco{background:linear-gradient(170deg,var(--green-deep),var(--green));color:#fff;border-radius:var(--radius);padding:30px 22px;box-shadow:var(--shadow)}
+.preco .k{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;opacity:.88}
+.preco .n{font-family:var(--display);font-size:58px;font-weight:900;line-height:1;margin-top:8px;letter-spacing:-.03em}
+.preco .n small{font-size:26px}
+.preco .obs{font-size:14px;opacity:.92;margin-top:10px}
+.desconto{display:inline-block;background:var(--amber);color:#3A2708;font-size:13px;font-weight:800;padding:6px 14px;border-radius:999px;margin-top:14px}
+
+/* ---------- DEPOIMENTOS ----------
+   Os prints sao pequenos (230-490px). Esticar ate a largura do container
+   borraria o texto, entao cada um fica no tamanho natural, centralizado
+   dentro de um card de altura uniforme. */
+/* Carrossel: rolagem horizontal com encaixe nativo — funciona no toque do
+   celular sem biblioteca e sem quebrar se o JS falhar. */
+.depos{
+  display:flex;gap:12px;width:100%;overflow-x:auto;
+  scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.depos::-webkit-scrollbar{display:none}
+.depo-card{
+  /* min-height so pra todos os slides terem a mesma altura e o carrossel nao
+     "pular" entre um e outro — os prints tem alturas diferentes. */
+  flex:0 0 100%;scroll-snap-align:center;min-height:140px;
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  box-shadow:var(--shadow);padding:16px 14px;display:grid;place-items:center;
+}
+.depo-card img{width:auto;max-width:100%;height:auto}
+/* Setas: ficam fora do trilho pra nao cobrir o depoimento */
+.depo-palco{position:relative}
+.depo-seta{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:3;
+  width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
+  background:var(--surface);box-shadow:var(--shadow);cursor:pointer;
+  display:grid;place-items:center;padding:0;transition:background .2s ease;
+}
+.depo-seta:hover{background:var(--green-tint)}
+.depo-seta:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+.depo-seta svg{width:18px;height:18px;stroke:var(--green-deep);fill:none;stroke-width:2.4;
+  stroke-linecap:round;stroke-linejoin:round}
+.depo-seta.ant{left:-6px}
+.depo-seta.prox{right:-6px}
+@media (max-width:400px){ .depo-seta{width:34px;height:34px} .depo-seta.ant{left:-10px} .depo-seta.prox{right:-10px} }
+
+.depo-pontos{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.depo-pontos button{
+  width:9px;height:9px;padding:0;border:0;border-radius:50%;background:var(--line);
+  cursor:pointer;transition:width .25s ease,background .25s ease;
+}
+.depo-pontos button[aria-current="true"]{width:26px;border-radius:999px;background:var(--green)}
+
+/* ---------- GARANTIA / FAQ ---------- */
+.garantia{background:var(--green-tint);border-radius:var(--radius);padding:26px 22px}
+.garantia img{width:96px;height:auto;margin-bottom:14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-align:left}
+details+details{margin-top:10px}
+summary{cursor:pointer;padding:16px 18px;font-weight:600;font-size:16px;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:20px;color:var(--green);font-weight:700}
+details[open] summary::after{content:"−"}
+details p{padding:0 18px 16px;color:var(--ink-soft);font-size:15.5px}
+
+footer{background:var(--ink);color:rgba(255,255,255,.72);padding:34px 0;font-size:14px}
+footer a{color:#fff}
+
+
+/* ---------- AVISO DE ATIVIDADE ----------
+   No celular fica no topo: embaixo ele cairia justo em cima do botao, que
+   ocupa quase toda a largura. No desktop vai pro canto inferior esquerdo,
+   longe do CTA centralizado. Alem disso o script esconde o aviso sempre que
+   um botao encostar nele. */
+.aviso{
+  position:fixed;left:12px;top:12px;z-index:60;max-width:min(300px,calc(100vw - 24px));
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  box-shadow:0 10px 30px -10px rgba(26,31,27,.3);
+  padding:11px 14px;display:flex;gap:10px;align-items:center;text-align:left;
+  opacity:0;transform:translateY(-10px);pointer-events:none;
+  transition:opacity .35s ease, transform .35s ease;
+}
+.aviso.ativo{opacity:1;transform:translateY(0)}
+@media (min-width:721px){
+  .aviso{top:auto;bottom:16px;transform:translateY(10px)}
+  .aviso.ativo{transform:translateY(0)}
+}
+.aviso .ponto{
+  flex:0 0 9px;height:9px;border-radius:50%;background:var(--green);position:relative;
+}
+.aviso .ponto::after{
+  content:"";position:absolute;inset:0;border-radius:50%;background:var(--green);
+  animation:aviso-ping 1.6s ease-out infinite;
+}
+@keyframes aviso-ping{ 0%{transform:scale(1);opacity:.7} 100%{transform:scale(2.6);opacity:0} }
+.aviso p{font-size:13.5px;line-height:1.35}
+.aviso b{font-weight:700}
+.aviso small{display:block;font-size:11.5px;color:var(--ink-soft);margin-top:1px}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+  .aviso .ponto::after{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= CABEÇALHO COM AS COMIDAS ================= -->
+<div class="hero-img">
+  <img src="img/header-comidas.jpg" alt="Mesa com sobremesas fit: chia, mousse, tortinhas de frutas e brigadeiros saudáveis" width="1408" height="768" fetchpriority="high">
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Super Pack de Receitas Fit</p>
+    <h1>Receitas para comer <em>sem culpa</em></h1>
+    <p class="lede">
+      Sem <b>açúcar</b>, sem <b>farinha</b> — elaboradas por um chef profissional com mais de
+      <b>10 anos de experiência</b> na cozinha.
+    </p>
+    <p class="chef">👨‍🍳 Mais de 250 receitas inéditas</p>
+    <div class="mt-32">
+      <!-- Leva para "o que voce vai aprender", nao direto ao checkout: a
+           pessoa percorre a oferta antes de decidir. -->
+      <a class="cta" href="#aprender">QUERO MINHAS RECEITAS</a>
+      <p class="cta-sub">Acesso imediato no seu e-mail · Garantia de 14 dias</p>
+    </div>
+  </div>
+</header>
+
+<div class="selos-wrap">
+  <div class="wrap">
+    <div class="selos">
+      <div class="selo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        <b>Testadas</b><span>e aprovadas</span>
+      </div>
+      <div class="selo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+        <b>Sem leite</b><span>e sem açúcar</span>
+      </div>
+      <div class="selo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 11h14l-1.5 8.5a2 2 0 0 1-2 1.5h-7a2 2 0 0 1-2-1.5Z"/><path d="M9 11 7.5 4M15 11l1.5-7"/></svg>
+        <b>Ingredientes</b><span>acessíveis</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= O QUE VOCÊ RECEBE ================= -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Você irá receber</p>
+    <h2 class="mt-16">Mais de 250 receitas inéditas</h2>
+    <p class="lede">Com passo a passo simples o bastante para quem nunca cozinhou seguir de primeira.</p>
+
+    <img class="mt-24" src="img/pack.jpg" alt="Tudo que vem no Super Pack de Receitas Fit" loading="lazy" style="border-radius:14px">
+
+    <div class="card mt-24">
+      <ul class="lista">
+        <li><span class="tick">✓</span><span>Sem glúten</span></li>
+        <li><span class="tick">✓</span><span>Sem leite</span></li>
+        <li><span class="tick">✓</span><span>Sem conservantes</span></li>
+        <li><span class="tick">✓</span><span>Açúcar: com ou sem — <b>você decide</b></span></li>
+        <li><span class="tick">✓</span><span>Ovo: com ou sem — <b>você decide</b></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RECEITAS ================= -->
+<section style="padding-top:0">
+  <div class="wrap stack gap-16">
+
+    <div class="receita">
+      <img src="img/bolo-cenoura.jpg" alt="Bolo de cenoura low carb com cobertura de chocolate" loading="lazy">
+      <div class="corpo">
+        <h3>Bolo de cenoura low carb fit</h3>
+        <div class="meta">
+          <span class="tag">120 kcal por fatia</span>
+          <span class="tag warm">20 min</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="receita">
+      <img src="img/bolo-milho.jpg" alt="Bolo de milho sem glúten" loading="lazy">
+      <div class="corpo">
+        <h3>Bolo de milho sem glúten light</h3>
+        <div class="meta">
+          <span class="tag">112 kcal por fatia</span>
+          <span class="tag warm">25 min</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="lede mt-16" style="font-size:18px;max-width:40ch">
+      Imagine poder comer bolo todos os dias sem culpa, sem sair da dieta e ainda cuidando da sua saúde.
+    </p>
+  </div>
+</section>
+
+<!-- ================= O QUE VOCÊ VAI APRENDER ================= -->
+<section id="aprender" style="padding-top:0;scroll-margin-top:16px">
+  <div class="wrap">
+    <p class="eyebrow">O que você vai aprender</p>
+    <h2 class="mt-16">Muito além de receitas</h2>
+
+    <div class="card mt-32">
+      <ul class="lista">
+        <li><span class="tick">✓</span><span>Receitas usadas por <b>centenas de mulheres</b> para comer bem e saudável todos os dias</span></li>
+        <li><span class="tick">✓</span><span>Vai entender exatamente <b>o que comer</b> para seguir firme na alimentação, sem culpas e sem recaídas</span></li>
+        <li><span class="tick">✓</span><span>Vai descobrir como ter resultados <b>sem sacrifício</b>, apenas com escolhas inteligentes na cozinha</span></li>
+        <li><span class="tick">✓</span><span><b>Não precisa saber cozinhar</b> — tudo tem um passo a passo</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRA QUEM É ================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>Pra quem é esse pack</h2>
+
+    <div class="stack gap-12 mt-32">
+      <div class="perfil"><span>🍫</span><p>Se você está lutando contra a <b>vontade de doce</b></p></div>
+      <div class="perfil"><span>😐</span><p>Se você está <b>cansada de receitas sem graça</b></p></div>
+      <div class="perfil"><span>✨</span><p>Ou se quer transformar de vez sua rotina alimentar <b>sem abrir mão do sabor</b></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALERIA ================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="galeria">
+      <img src="img/bolo-chocolate.jpg" alt="Bolo de chocolate fit" loading="lazy">
+      <img src="img/food-1.jpg" alt="Brownies fit" loading="lazy">
+      <img src="img/airfryer.jpg" alt="Receitas na air fryer" loading="lazy">
+      <img src="img/food-3.jpg" alt="Receita fit" loading="lazy">
+      <img src="img/food-6.jpg" alt="Receita fit" loading="lazy">
+      <img src="img/food-7.jpg" alt="Receita fit" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ================= ENTREGA ================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="card">
+      <div style="font-size:36px">📩</div>
+      <h3 class="mt-16">E como vou receber?</h3>
+      <p class="lede">Instantaneamente por e-mail após o pagamento. <b>Zero espera.</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BÔNUS ================= -->
+<section id="bonus" style="padding-top:0;scroll-margin-top:16px">
+  <div class="wrap">
+    <div class="bonus">
+      <span class="bonus-selo">🎁 Bônus exclusivo grátis</span>
+      <h2 style="font-size:29px">Para quem adquirir hoje</h2>
+      <p class="lede" style="margin-top:10px">6 materiais extras que entram junto, sem custo nenhum.</p>
+
+      <div class="bonus-grid">
+        <img src="img/bonus-1.png" alt="Bônus 1: mais de 700 receitas fit low carb, doces e salgadas" loading="lazy">
+        <img src="img/bonus-2.png" alt="Bônus 2: mais de 140 receitas saudáveis na air fryer" loading="lazy">
+        <img src="img/bonus-3.png" alt="Bônus 3: mais de 180 receitas de sucos e vitaminas detox" loading="lazy">
+        <img src="img/bonus-4.png" alt="Bônus 4: mais de 87 receitas de bolos fit" loading="lazy">
+        <img src="img/bonus-5.png" alt="Bônus 5: receitas natalinas low carb" loading="lazy">
+        <img src="img/bonus-6.png" alt="Bônus 6: 15 planners para organizar sua dieta" loading="lazy">
+      </div>
+
+      <p class="bonus-valor">
+        6 livros de receitas entram juntos no pacote
+        <b>sem custo nenhum</b>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VALOR ================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">Recapitulando</p>
+    <h2 class="mt-16">Tudo que você irá receber</h2>
+
+    <div class="valor mt-32">
+      <div class="valor-linha"><span>700 receitas low carb para emagrecer</span><s>R$ 198,80</s></div>
+      <div class="valor-linha"><span>Uma receita fit por dia — 365 receitas</span><s>R$ 99,90</s></div>
+      <div class="valor-linha"><span>+220 doces fit para comer sem culpa</span><s>R$ 89,90</s></div>
+      <div class="valor-linha"><span>Sucos, vitaminas e chás detox — 180 receitas</span><s>R$ 49,90</s></div>
+      <div class="valor-linha"><span>102 receitas fit na air fryer</span><s>R$ 39,90</s></div>
+      <div class="valor-linha"><span>Pães low carb — 50 receitas</span><s>R$ 37,90</s></div>
+      <div class="valor-linha"><span>Receitas natalinas fit low carb</span><s>R$ 29,90</s></div>
+      <div class="valor-linha"><span>8 receitas de pudins saudáveis</span><s>R$ 19,90</s></div>
+      <div class="valor-linha"><span>Planner para organizar sua dieta</span><s>R$ 14,90</s></div>
+      <div class="valor-total"><span>Valor total</span><s>R$ 581,00</s></div>
+    </div>
+
+    <div class="preco mt-24">
+      <p class="k">Mas hoje você tem acesso por apenas</p>
+      <p class="n"><small>R$</small> 29,90</p>
+      <p class="obs">pagamento único · acesso imediato por e-mail</p>
+      <span class="desconto">95% de desconto</span>
+    </div>
+
+    <div class="mt-24">
+      <a class="cta" href="https://lisalisafitfit.mycartpanda.com/checkout/201876347:1">COMPRAR POR R$ 29,90</a>
+      <p class="cta-sub">Compra segura · você recebe na hora no seu e-mail</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DEPOIMENTOS ================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">Quem já está usando</p>
+    <h2 class="mt-16">Veja os feedbacks</h2>
+
+    <div class="depo-palco mt-32">
+    <button class="depo-seta ant" id="depoAnterior" type="button" aria-label="Depoimento anterior">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18 9 12l6-6"/></svg>
+    </button>
+    <button class="depo-seta prox" id="depoProximo" type="button" aria-label="Próximo depoimento">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+    </button>
+    <div class="depos" id="carrossel" aria-label="Depoimentos de clientes">
+      <div class="depo-card"><img src="img/avaliacao-1.png" alt="Comentário de cliente sobre as receitas" loading="lazy"></div>
+      <div class="depo-card"><img src="img/avaliacao-2.png" alt="Comentário de cliente sobre as receitas" loading="lazy"></div>
+      <div class="depo-card"><img src="img/avaliacao-3.png" alt="Comentário de cliente sobre as receitas" loading="lazy"></div>
+      <div class="depo-card"><img src="img/avaliacao-4.png" alt="Comentário de cliente sobre as receitas" loading="lazy"></div>
+      <div class="depo-card"><img src="img/avaliacao-5.png" alt="Comentário de cliente sobre as receitas" loading="lazy"></div>
+      <div class="depo-card"><img src="img/avaliacao-6.png" alt="Comentário de cliente sobre as receitas" loading="lazy"></div>
+    </div>
+    </div>
+    <div class="depo-pontos" id="carrosselPontos"></div>
+  </div>
+</section>
+
+<!-- ================= GARANTIA ================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="garantia">
+      <img src="img/selo-garantia-14-dias.webp" alt="Selo de garantia de 14 dias" width="96" height="96" loading="lazy">
+      <h3>Experimente sem riscos</h3>
+      <p class="lede">
+        Satisfação garantida ou seu dinheiro de volta. Você tem até <b>14 dias</b> para solicitar a
+        devolução do valor pago — sem burocracia e sem precisar justificar.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>Dúvidas frequentes</h2>
+
+    <div class="mt-32">
+      <details open>
+        <summary>Os ingredientes são caros?</summary>
+        <p>Não. A maior parte das receitas usa o que você já tem em casa — e quando pede algo diferente, é fácil de achar em qualquer mercado.</p>
+      </details>
+
+      <details>
+        <summary>Preciso ser experiente na cozinha?</summary>
+        <p>Não. O passo a passo é escrito para quem está começando: ingrediente por ingrediente, na ordem, sem termo técnico.</p>
+      </details>
+
+      <details>
+        <summary>O e-book realmente chega no meu e-mail após a compra?</summary>
+        <p>Sim. Assim que o pagamento é confirmado, o acesso é enviado automaticamente para o e-mail usado na compra. Se não encontrar, confira também o spam e a aba de promoções.</p>
+      </details>
+
+      <details>
+        <summary>Posso devolver e receber meu dinheiro de volta?</summary>
+        <p>Sim. Você tem até 14 dias para solicitar o reembolso integral, sem precisar explicar o motivo.</p>
+      </details>
+
+      <details>
+        <summary>Serve para quem tem intolerância?</summary>
+        <p>As receitas são sem glúten e sem leite, e trazem alternativas com e sem ovo e com e sem açúcar. Ainda assim, confira sempre os rótulos e, em caso de alergia diagnosticada, fale com seu nutricionista.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Ficou com alguma dúvida? Fale com o nosso suporte.</p>
+    <p class="mt-16"><a href="mailto:lisalisafitfit@gmail.com">lisalisafitfit@gmail.com</a></p>
+    <p style="opacity:.55;font-size:12.5px;margin-top:18px">
+      Este produto não substitui acompanhamento nutricional ou médico. Resultados variam de pessoa para pessoa.
+    </p>
+  </div>
+</footer>
+
+<div class="aviso" id="aviso" role="status" aria-live="polite">
+  <span class="ponto"></span>
+  <p id="avisoTexto"></p>
+</div>
+
+<script>
+(function(){
+  const caixa  = document.getElementById('aviso');
+  const texto  = document.getElementById('avisoTexto');
+
+  const nomes = ['Ana', 'Camila', 'Juliana', 'Patrícia', 'Fernanda', 'Larissa',
+                 'Beatriz', 'Renata', 'Mariana', 'Aline', 'Vanessa', 'Carla'];
+  const cidades = ['SP', 'RJ', 'MG', 'BA', 'PR', 'RS', 'CE', 'SC', 'GO', 'PE'];
+
+  function sorteia(a){ return a[Math.floor(Math.random() * a.length)]; }
+
+  function proximaMensagem(){
+    const nome = sorteia(nomes), uf = sorteia(cidades);
+    const opcoes = [
+      `<b>${nome} (${uf})</b> acabou de garantir o pack<small>há poucos instantes</small>`,
+      `<b>${18 + Math.floor(Math.random()*30)} pessoas</b> estão vendo esta página<small>agora mesmo</small>`,
+      `<b>${nome}</b> desbloqueou os 6 bônus<small>há ${1 + Math.floor(Math.random()*9)} minutos</small>`,
+    ];
+    return sorteia(opcoes);
+  }
+
+  /* Nunca sobrepor um botao: se algum CTA cruzar a area do aviso, ele nao
+     aparece nesse ciclo. Vale tambem quando a pessoa rola com ele na tela. */
+  function encostaEmBotao(){
+    const a = caixa.getBoundingClientRect();
+    return [...document.querySelectorAll('.cta')].some(function(c){
+      const b = c.getBoundingClientRect();
+      const folga = 12;
+      return !(b.right < a.left - folga || b.left > a.right + folga ||
+               b.bottom < a.top - folga || b.top > a.bottom + folga);
+    });
+  }
+
+  let visivel = false;
+
+  function esconder(){ caixa.classList.remove('ativo'); visivel = false; }
+
+  function mostrar(){
+    if (visivel) return;
+    texto.innerHTML = proximaMensagem();
+    caixa.classList.add('ativo');           // precisa estar posicionado pra medir
+    if (encostaEmBotao()) { caixa.classList.remove('ativo'); return; }
+    visivel = true;
+    setTimeout(esconder, 5000);
+  }
+
+  // some na hora se um botao chegar perto durante a rolagem
+  window.addEventListener('scroll', function(){
+    if (visivel && encostaEmBotao()) esconder();
+  }, { passive: true });
+
+  setTimeout(function(){
+    mostrar();
+    setInterval(mostrar, 16000);
+  }, 6000);
+})();
+
+/* ---------- Carrossel de depoimentos ---------- */
+(function(){
+  const trilho = document.getElementById('carrossel');
+  const barra  = document.getElementById('carrosselPontos');
+  if (!trilho || !barra) return;
+
+  const cards = [...trilho.children];
+  let atual = 0, automatico;
+
+  cards.forEach(function(_, i){
+    const p = document.createElement('button');
+    p.type = 'button';
+    p.setAttribute('aria-label', 'Depoimento ' + (i + 1));
+    p.addEventListener('click', function(){ irPara(i); parar(); });
+    barra.appendChild(p);
+  });
+  const pontos = [...barra.children];
+
+  function marcar(i){
+    atual = i;
+    pontos.forEach(function(p, j){ p.setAttribute('aria-current', j === i ? 'true' : 'false'); });
+  }
+
+  function irPara(i){
+    trilho.scrollTo({ left: cards[i].offsetLeft - trilho.offsetLeft, behavior: 'smooth' });
+    marcar(i);
+  }
+
+  /* A rolagem manual manda no ponto ativo, nao o contrario: sem isso o
+     indicador mentiria quando a pessoa arrastasse com o dedo. */
+  let debounce;
+  trilho.addEventListener('scroll', function(){
+    clearTimeout(debounce);
+    debounce = setTimeout(function(){
+      const meio = trilho.scrollLeft + trilho.clientWidth / 2;
+      let maisPerto = 0, menorDist = Infinity;
+      cards.forEach(function(c, i){
+        const centro = c.offsetLeft - trilho.offsetLeft + c.clientWidth / 2;
+        const d = Math.abs(centro - meio);
+        if (d < menorDist) { menorDist = d; maisPerto = i; }
+      });
+      marcar(maisPerto);
+    }, 90);
+  }, { passive: true });
+
+  function parar(){ clearInterval(automatico); }
+
+  // setas: circulam, entao do ultimo volta pro primeiro
+  const btnAnt  = document.getElementById('depoAnterior');
+  const btnProx = document.getElementById('depoProximo');
+  if (btnAnt)  btnAnt.addEventListener('click',  function(){ irPara((atual - 1 + cards.length) % cards.length); parar(); });
+  if (btnProx) btnProx.addEventListener('click', function(){ irPara((atual + 1) % cards.length); parar(); });
+
+  // qualquer toque assume o controle
+  ['pointerdown','touchstart','wheel'].forEach(function(ev){
+    trilho.addEventListener(ev, parar, { passive: true });
+  });
+
+  marcar(0);
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    automatico = setInterval(function(){ irPara((atual + 1) % cards.length); }, 4500);
+  }
+})();
+</script>
+
+</body>
+</html>
